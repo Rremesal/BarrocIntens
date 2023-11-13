@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/privacyverklaring', function(){
+    return view('privacy');
+})->name('privacy');
+
 Route::get('/home', function () {
     return view('home');
 })->middleware(['auth', 'verified'])->name('dashboard');
