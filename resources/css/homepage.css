@@ -1,0 +1,73 @@
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 8px black;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 8px yellow;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    box-shadow: inset 0 0 15px yellow;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bgimg {
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 25px;
+}
+.image {
+    opacity: 0.7; /* Adjust the opacity of the image */
+}
+
+
+.topleft {
+    position: absolute;
+    top: 0;
+    left: 16px;
+}
+
+.bottomleft {
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+hr {
+    margin: auto;
+    width: 40%;
+}
+
+h1, h2, h3 {
+    font-family: 'Big Shoulders Display bold';
+    font-size: 30px;
+}
+
+p {
+    font-family: 'Big Shoulders Display';
+    font-size: 17px;
+}

@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Big Shoulders Display';
+    src: url('/public/fonts/BigShouldersDisplay-Regular.ttf') format('opentype')
+}
+
+@font-face {
+    font-family: 'Big Shoulders Display bold';
+    src: url('/public/fonts/BigShouldersDisplay-Bold.ttf') format('opentype');
+}
