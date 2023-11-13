@@ -61,3 +61,13 @@ hr {
     margin: auto;
     width: 40%;
 }
+
+h1, h2, h3 {
+    font-family: 'Big Shoulders Display bold';
+    font-size: 30px;
+}
+
+p {
+    font-family: 'Big Shoulders Display';
+    font-size: 17px;
+}

@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Machines') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('privacy')" :active="request()->routeIs('privacy')">
+                        {{ __('Privacyverklaring') }}
+                    </x-nav-link>
                 </div>
             </div>
 

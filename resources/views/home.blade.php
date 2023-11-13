@@ -1,5 +1,5 @@
 <x-app-layout>
-
+    <x-cookie-alert></x-cookie-alert>
     <div class="bgimg">
         <div class="overlay">
             <img src="{{ asset('/image/Homepage.png') }}" class="image">
