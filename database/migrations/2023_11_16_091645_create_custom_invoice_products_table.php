@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('custom_invoice_products', function (Blueprint $table) {
             $table->id('custom_invoice_id');
-            $table->int('amount');
+            $table->integer('amount');
             $table->decimal('price_per_product');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('machines');
             $table->timestamps();
         });
     }

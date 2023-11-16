@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('description', 255);
             $table->string('image_path', 255);
             $table->decimal('price');
-            $table->foreign('product_categoty_id')->references('id')->on('product_categories');
+            $table->unsignedBigInteger('product_category_id');
+            $table->foreign('product_category_id')->references('id')->on('product_categories');
             $table->timestamps();
         });
     }

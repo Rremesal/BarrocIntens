@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('city', 255);
             $table->string('country_code', 3);
             $table->dateTime('bkr_checked_at');
+            $table->unsignedBigInteger('contact_id');
             $table->foreign('contact_id')->references('id')->on('users');
             $table->timestamps();
         });
