@@ -19,11 +19,9 @@ class dashboardController extends Controller
 
                     "image" => [
                         asset("Image/NavbarlogoBig.png"),
-                        asset("Image/NavbarlogoSmall.png")
                     ],
                     "link" => [
-                        [ "href" => "/home", "text" => "Dit gaat naar Home"],
-                        ["href" => "/dash", "text"  => "Dit gaat naar dashboard"]
+                        [ "href" => '/producten', "text" => "Dit gaat naar producten"],
                     ],
                 ];
                 break;
