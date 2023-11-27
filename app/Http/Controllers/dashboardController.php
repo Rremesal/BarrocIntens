@@ -11,8 +11,6 @@ class dashboardController extends Controller
     {
         $user = auth()->user();
 
-
-
         switch ($user->role->role_name) {
             case "Inkoop":
                 $config = [
