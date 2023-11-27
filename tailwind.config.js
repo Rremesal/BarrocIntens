@@ -16,6 +16,7 @@ export default {
             },
             colors: {
                 customblack: "#212121",
+                customyellow: "#ffd700",
             }
         },
     },
