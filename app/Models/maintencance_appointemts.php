@@ -10,6 +10,6 @@ class maintencance_appointemts extends Model
     use HasFactory;
 
     public function company() {
-        $this->belongsTo(company::class);
+        return $this->belongsTo(company::class);
     }
 }

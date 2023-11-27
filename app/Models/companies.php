@@ -10,14 +10,14 @@ class companies extends Model
     use HasFactory;
 
     public function user() {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function maintenance_appointments() {
-        $this->hasMany(maintenance_appointments::class);
+        return $this->hasMany(maintenance_appointments::class);
     }
 
     public function custom_invoices() {
-        $this->hasMany(custom_invoices::class);
+        return $this->hasMany(custom_invoices::class);
     }
 }

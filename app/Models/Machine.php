@@ -9,11 +9,13 @@ class Machine extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function product_category() {
-        $this->hasOne(Product_categories::class);
+        return $this->belongsTo(Product_categories::class, 'product_category_id');
     }
 
     public function custom_invoice_product() {
-        $this->belongsToMany(custom_invoice_products::class);
+        return $this->belongsToMany(custom_invoice_products::class);
     }
 }

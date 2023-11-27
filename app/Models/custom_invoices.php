@@ -10,10 +10,10 @@ class custom_invoices extends Model
     use HasFactory;
 
     public function company() {
-        $this->belongsTo(company::class);
+        return $this->belongsTo(company::class);
     }
 
     public function custom_invoice_products() {
-        $this->hasMany(custom_invoice_products::class);
+        return $this->hasMany(custom_invoice_products::class);
     }
 }
