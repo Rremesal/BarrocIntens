@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\MachineController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('/dashboard', dashboardController::class);
+Route::resource('/product', MachineController::class);
 
 
 require __DIR__.'/auth.php';
