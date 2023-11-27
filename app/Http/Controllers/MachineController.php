@@ -69,5 +69,5 @@ class MachineController extends Controller
 
         return redirect()->route('product.index');
     }
-
 }
+
