@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MachineController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Route::resource('/machines', ); // hier moet nog de Controller voor de (koffie) machines mee worden gegeven aan de resource functie
+    Route::resource('/machines', MachineController::class);
 
 
 require __DIR__.'/auth.php';

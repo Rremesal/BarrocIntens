@@ -18,7 +18,7 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Koffie Merken(Not needed)') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('machines.index')" :active="request()->routeIs('machines.index')">
                         {{ __('Machines') }}
                     </x-nav-link>
                     <x-nav-link :href="route('privacy')" :active="request()->routeIs('privacy')">
