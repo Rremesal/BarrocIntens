@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class maintencance_appointemts extends Model
 {
     use HasFactory;
+
+    public function company() {
+        $this->belongsTo(company::class);
+    }
 }

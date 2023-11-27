@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class work_order extends Model
 {
     use HasFactory;
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }

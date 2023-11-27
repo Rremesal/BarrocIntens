@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->dateTime('date');
             $table->dateTime('paid_at');
+            $table->unsignedBigInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies');
             $table->timestamps();
         });
