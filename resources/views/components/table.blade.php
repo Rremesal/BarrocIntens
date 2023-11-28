@@ -18,7 +18,7 @@
                             <form class=" inline" method="POST" action="{{ route('product.destroy', ['product' => $item->id]) }}">
                                 @csrf
                                 @method('DELETE')
-                                @if ($link['route'] == "product.destroy")
+                                @if ( Str::contains($link['route'], 'destroy'))
                                     <button class="{{ $link['icon'] }} border p-2 bg-gray-200 rounded hover:bg-gray-500"></button>
                                 @else
                                     <a class="{{ $link['icon'] }} border p-2 bg-gray-200 rounded hover:bg-gray-500" href="{{ route($link['route'], ['product' => $item])}}"></a>
