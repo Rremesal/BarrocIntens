@@ -35,7 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('/machines', MachineController::class);
+Route::resource('/machines', MachineController::class)->middleware(['auth', 'verified']);
 
 Route::resource('/dashboard', dashboardController::class);
 Route::resource('/product', MachineController::class);
