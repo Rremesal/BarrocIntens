@@ -19,7 +19,7 @@ class dashboardController extends Controller
                         asset("Image/NavbarlogoBig.png"),
                     ],
                     "link" => [
-                        [ "href" => '/producten', "text" => "Dit gaat naar producten"],
+                        [ "href" => '/product', "text" => "Dit gaat naar producten"],
                     ],
                 ];
                 break;

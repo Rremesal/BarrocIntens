@@ -3,7 +3,10 @@
         @if (empty($producten))
             <p>no products were found</p>
         @else
-            <x-table :linkjes="$linkjes" :items="$producten"></x-table>
+            <div class="p-5">
+                <x-table table="products" :linkjes="$linkjes" :items="$producten"></x-table>
+            </div>
+
         @endif
     </div>
 

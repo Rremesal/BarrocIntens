@@ -18,4 +18,8 @@ class Machine extends Model
     public function custom_invoice_product() {
         return $this->belongsToMany(custom_invoice_products::class);
     }
+
+    public function stockchange() {
+        return $this->hasMany(stockchange::class);
+    }
 }

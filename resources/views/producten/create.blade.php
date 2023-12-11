@@ -33,6 +33,13 @@
                 @enderror
             </div>
             <div class="flex flex-col my-2">
+                <label for="stock">Voorraad</label>
+                <input id="stock" name="stock" type="number" value="{{ old('stock', $product ? $product : null) }}">
+                @error('price')
+                <p class="text-red-500">{{ $message }}</p>
+                @enderror
+            </div>
+            <div class="flex flex-col my-2">
                 <label for="name">Productcategorie</label>
                 <select name="product_category_id" id="product_category">
                     @foreach ($categorieen as $categorie)
