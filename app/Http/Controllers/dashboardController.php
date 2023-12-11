@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Str;
 
 class dashboardController extends Controller
 {
     public function index()
     {
         $user = auth()->user();
+        $role =  strtolower($user->role->role_name);
 
-        switch ($user->role->role_name) {
-            case "Inkoop":
+        switch ($role) {
+            case "inkoop":
                 $config = [
 
                     "image" => [
@@ -23,13 +25,13 @@ class dashboardController extends Controller
                     ],
                 ];
                 break;
-            case "Sales":
+            case "sales":
                 break;
-            case "Finance":
+            case "finance":
                 break;
-            case "Maintenance":
+            case "maintenance":
                 break;
-            case "Customer":
+            case "customer":
                 break;
         }
 
