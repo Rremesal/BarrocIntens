@@ -34,14 +34,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::resource('/dashboard', dashboardController::class);
+    Route::resource('/product', MachineController::class);
+    Route::put('stockchange/{item}', [StockchangeController::class, 'update']);
+    Route::resource('/notification', NotificationController::class);
 });
 
 Route::resource('/machines', MachineController::class)->middleware(['auth', 'verified']);
-
-Route::resource('/dashboard', dashboardController::class);
-Route::resource('/product', MachineController::class);
-Route::put('stockchange/{item}', [StockchangeController::class, 'update']);
-Route::resource('/notification', NotificationController::class);
 
 
 
