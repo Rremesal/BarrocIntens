@@ -22,4 +22,8 @@ class Machine extends Model
     public function stockchange() {
         return $this->hasMany(stockchange::class);
     }
+
+    public function notifications() {
+        return $this->hasMany(Notification::class);
+    }
 }

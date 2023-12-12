@@ -3,6 +3,7 @@
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MachineController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\StockchangeController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,7 @@ Route::resource('/machines', MachineController::class)->middleware(['auth', 'ver
 Route::resource('/dashboard', dashboardController::class);
 Route::resource('/product', MachineController::class);
 Route::put('stockchange/{item}', [StockchangeController::class, 'update']);
+Route::resource('/notification', NotificationController::class);
 
 
 

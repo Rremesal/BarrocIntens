@@ -24,6 +24,11 @@
                     <x-nav-link :href="route('privacy')" :active="request()->routeIs('privacy')">
                         {{ __('Privacyverklaring') }}
                     </x-nav-link>
+                    @if (auth()->user()->role->role_name == "inkoop_supervisor")
+                        <x-nav-link :href="route('notification.index')" :active="request()->routeIs('privacy')">
+                            {{ __('Voorraadaanvragen') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 

@@ -32,14 +32,15 @@
                 @endforeach
                 <td>
                     @foreach ($linkjes as $link)
-                            <form class=" inline" method="POST" action="{{ route('product.destroy', ['product' => $item->id]) }}">
+                    @if ( Str::contains($link['route'], 'destroy'))
+                            <form class=" inline" method="POST" action="{{ route($link['route'], [($table == "products" ? 'product' : 'notification') => $item->id]) }}">
                                 @csrf
                                 @method('DELETE')
-                                @if ( Str::contains($link['route'], 'destroy'))
+
                                     <button class="{{ $link['icon'] }} border p-2 bg-gray-200 rounded hover:bg-gray-500"></button>
-                                @else
-                                    <a class="{{ $link['icon'] }} border p-2 bg-gray-200 rounded hover:bg-gray-500" href="{{ route($link['route'], ['product' => $item])}}"></a>
-                                @endif
+                    @else
+                                    <a class="{{ $link['icon'] }} border p-2 bg-gray-200 rounded hover:bg-gray-500" href="{{ route($link['route'], [($table == "products" ? 'product' : 'notification') => $item])}}"></a>
+                    @endif
                             </form>
                     @endforeach
                 </td>
@@ -47,7 +48,3 @@
         @endforeach
     </tbody>
 </table>
-
-@push('scripts')
-        <script src="{{ asset('js/table_inlineediting.js') }}"></script>
-@endpush

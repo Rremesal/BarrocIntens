@@ -19,9 +19,26 @@ class dashboardController extends Controller
 
                     "image" => [
                         asset("Image/NavbarlogoBig.png"),
+                        asset("Image/NavbarlogoBig.png"),
                     ],
                     "link" => [
-                        [ "href" => '/product', "text" => "Dit gaat naar producten"],
+                        [ "href" => '/product', "text" => "Producten"],
+                        [ "href" => '/product/create', "text" => "Product aanmaken"],
+                    ],
+                ];
+                break;
+            case "inkoop_supervisor":
+                $config = [
+
+                    "image" => [
+                        asset("Image/NavbarlogoBig.png"),
+                        asset("Image/NavbarlogoBig.png"),
+                        asset("Image/NavbarlogoBig.png"),
+                    ],
+                    "link" => [
+                        [ "href" => '/product', "text" => "Producten"],
+                        [ "href" => '/product/create', "text" => "Product aanmaken"],
+                        [ "href" => '/notification', "text" => "Voorraadaanvragen"],
                     ],
                 ];
                 break;
