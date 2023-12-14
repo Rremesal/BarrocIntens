@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('work_orders', function (Blueprint $table) {
             $table->id();
-            $table->int('material_amount', 255);
+            $table->integer('material_amount');
             $table->longText('solved_discription');
             $table->timestamps();
         });

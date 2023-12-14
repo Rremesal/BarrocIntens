@@ -15,9 +15,12 @@ return new class extends Migration
             $table->id();
             $table->longText('note');
             $table->dateTime('date');
-            $table->foreign('company_id')->references('id')->on('companies');
-            $table->foreign('author_id')->references('id')->on('users');
+            $table->unsignedBigInteger('company_id');
+            //$table->foreign('company_id')->references('id')->on('companies');
+            $table->unsignedBigInteger('author_id');
             $table->timestamps();
+
+            $table->foreign('author_id')->references('id')->on('users');
         });
     }
 

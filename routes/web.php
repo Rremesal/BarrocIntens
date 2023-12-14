@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\MaintencanceAppointemtsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/privacyverklaring', function(){
@@ -30,6 +32,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/fullcalendar',[MaintencanceAppointemtsController::class, "fullcalendar"]);
+    Route::resource('/calendar', CalendarController::class);
+    Route::get('/fullcalendar/create', [CalendarController::class, 'create'])->name('fullcalendar.create');
+    Route::post('/fullcalendar/store', [CalendarController::class, 'store'])->name('fullcalendar.store');
+
 });
 
 // Route::resource('/machines', ); // hier moet nog de Controller voor de (koffie) machines mee worden gegeven aan de resource functie

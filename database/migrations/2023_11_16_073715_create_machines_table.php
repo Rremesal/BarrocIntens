@@ -17,12 +17,14 @@ return new class extends Migration
             $table->string('description', 255);
             $table->string('image_path', 255);
             $table->decimal('price');
-            $table->int('amount');
-            $table->foreign('product_categoty_id')->references('id')->on('product_categories');
+            $table->integer('amount');
+            $table->unsignedBigInteger('product_categoty_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('product_categoty_id')->references('id')->on('product_categories')->onDelete('set null');
         });
     }
-
+   
     /**
      * Reverse the migrations.
      */
