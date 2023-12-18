@@ -13,6 +13,6 @@ class Stockchange extends Model
     protected $fillable = ["machine_id", "amount", "isApproved"];
 
     public function product() {
-        return $this->belongsTo(Machine::class);
+        return $this->belongsTo(Product::class);
     }
 }
