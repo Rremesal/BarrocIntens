@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('stockchanges', function (Blueprint $table) {
             $table->id();
             $table->integer('amount');
-            $table->unsignedBigInteger('machine_id');
-            $table->foreign('machine_id')->references('id')->on('products')->onDelete("cascade");
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete("cascade");
             $table->tinyInteger('isApproved')->default(1);
             $table->timestamps();
         });
