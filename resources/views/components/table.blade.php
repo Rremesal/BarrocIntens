@@ -16,7 +16,7 @@
                         @if (Str::contains($key, "amount"))
                             <td class="border p-2 text-center flex">
                                 <p class="text-center p-1">{{ $value }}</p>
-                                <form method="POST" action="{{ url("/stockchange/{$item->id}") }}">
+                                <form method="POST" action="{{ route("stockchange.update", ['stockchange' => $item])}}">
                                     @csrf
                                     @method('PUT')
                                     <input name="table" value="{{ $table }}" type="password" hidden>
@@ -33,13 +33,13 @@
                 <td>
                     @foreach ($linkjes as $link)
                     @if ( Str::contains($link['route'], 'destroy'))
-                            <form class=" inline" method="POST" action="{{ route($link['route'], [($table == "products" ? 'product' : 'notification') => $item->id]) }}">
+                            <form class=" inline" method="POST" action="{{ route($link['route'], [($table == "products" ? 'product' : 'stockchange') => $item]) }}">
                                 @csrf
                                 @method('DELETE')
 
                                     <button class="{{ $link['icon'] }} border p-2 bg-gray-200 rounded hover:bg-gray-500"></button>
                     @else
-                                    <a class="{{ $link['icon'] }} border p-2 bg-gray-200 rounded hover:bg-gray-500" href="{{ route($link['route'], [($table == "products" ? 'product' : 'notification') => $item])}}"></a>
+                                    <a class="{{ $link['icon'] }} border p-2 bg-gray-200 rounded hover:bg-gray-500" href="{{ route($link['route'], [($table == "products" ? 'product' : 'stockchange') => $item])}}"></a>
                     @endif
                             </form>
                     @endforeach
