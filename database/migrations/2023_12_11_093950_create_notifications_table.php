@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger("amount")->nullable(false);
             $table->unsignedBigInteger("product_id");
             $table->unsignedBigInteger("for_role_id");
-            $table->foreign("product_id")->references("id")->on("machines");
+            $table->foreign("product_id")->references("id")->on("products");
             $table->foreign("for_role_id")->references("id")->on("roles");
             $table->timestamps();
         });

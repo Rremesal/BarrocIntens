@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('amount');
             $table->unsignedBigInteger('machine_id');
-            $table->foreign('machine_id')->references('id')->on('machines')->onDelete("cascade");
+            $table->foreign('machine_id')->references('id')->on('products')->onDelete("cascade");
             $table->tinyInteger('isApproved')->default(1);
             $table->timestamps();
         });
