@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\MachineController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\StockchangeController;
 use Illuminate\Support\Facades\Route;
@@ -36,12 +36,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('/dashboard', dashboardController::class);
-    Route::resource('/product', MachineController::class);
-    Route::put('stockchange/{item}', [StockchangeController::class, 'update']);
-    Route::resource('/notification', NotificationController::class);
+    Route::resource('/product', ProductController::class);
+    // Route::resource('/stockchange', StockchangeController::class);
 });
 
-Route::resource('/machines', MachineController::class)->middleware(['auth', 'verified']);
+Route::resource('/machines', ProductController::class)->middleware(['auth', 'verified']);
 
 
 
