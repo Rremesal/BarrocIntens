@@ -37,10 +37,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/dashboard', dashboardController::class);
     Route::resource('/product', ProductController::class);
-    // Route::resource('/stockchange', StockchangeController::class);
+    Route::resource('/stockchange', StockchangeController::class);
 });
 
-Route::resource('/machines', ProductController::class)->middleware(['auth', 'verified']);
 
 
 
