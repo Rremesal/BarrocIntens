@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class custom_invoices extends Model
 {
     use HasFactory;
+
+    public function company() {
+        return $this->belongsTo(company::class);
+    }
+
+    public function custom_invoice_products() {
+        return $this->hasMany(custom_invoice_products::class);
+    }
 }

@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MachineController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\StockchangeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\MaintencanceAppointemtsController;
@@ -33,14 +37,23 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+
     Route::get('/fullcalendar',[MaintencanceAppointemtsController::class, "fullcalendar"]);
     Route::resource('/calendar', CalendarController::class);
     Route::get('/fullcalendar/create', [CalendarController::class, 'create'])->name('fullcalendar.create');
     Route::post('/fullcalendar/store', [CalendarController::class, 'store'])->name('fullcalendar.store');
 
+
+    Route::resource('/dashboard', dashboardController::class);
+    Route::resource('/product', MachineController::class);
+    Route::put('stockchange/{item}', [StockchangeController::class, 'update']);
+    Route::resource('/notification', NotificationController::class);
+
 });
 
-// Route::resource('/machines', ); // hier moet nog de Controller voor de (koffie) machines mee worden gegeven aan de resource functie
+Route::resource('/machines', MachineController::class)->middleware(['auth', 'verified']);
+
+
 
 
 require __DIR__.'/auth.php';

@@ -9,9 +9,13 @@
             <hr>
             <p class="text-base">Informatie over het bedrijf... Informatie over het bedrijf... Informatie over het bedrijf... Informatie over het bedrijf... Informatie over het bedrijf... Informatie over het bedrijf...</p>
             <br>
-            <button class="bg-black hover:bg-black text-white font-semibold py-2 px-4 border border-white rounded shadow">Koffie Merken</button>
-            <button class="bg-black hover:bg-black text-white font-semibold py-2 px-4 border border-white rounded shadow">Koffie Machines</button>
+            <a href="{{ route('machines.index') }}" class="bg-black hover:bg-black text-white font-semibold py-2 px-4 border border-white rounded shadow">
+                Koffie Merken</a>
+            </button>
+            <a href="{{ route('machines.index') }}" class="bg-black hover:bg-black text-white font-semibold py-2 px-4 border border-white rounded shadow">
+                Koffie Machines
+            </a>
+            </button>
         </div>
     </div>
-
 </x-app-layout>
