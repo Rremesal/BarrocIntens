@@ -11,9 +11,9 @@ class ProductController extends Controller
     private $rules = [
         "name" => ["required", "min:5"],
         "description" => ["required", "min:10"],
-        "image_path" => ["required"],
+        "file" => ["required"],
         "price" => ["required", "decimal:2"],
-        "stock" => ["required"],
+        "amount" => ["required"],
         "product_category_id" => ["required"],
 
     ];
@@ -21,34 +21,28 @@ class ProductController extends Controller
     public function index() {
 
         $producten = Product::all();
-        $data = [];
-        foreach($producten as $product) {
-            $latestStockChange = Stockchange::where("machine_id", $product->id)->latest()->first()->amount;
-            // here you can format the data of specific array entries
-            if(strlen($product->description) > 5 ) {
-                $product->description = substr($product->description, 0, 30)."...";
-            }
-            // setting a temporary value for the foreign key and then deleting the foreign key field
-            $product->product_category = $product->product_category->name;
-            unset($product->product_category_id);
-            $product->amount = $product->stockchange()->sum('amount');
-            $product->new_stock = $latestStockChange;
-            foreach($product->stockchange as $stockchange) {
-                $product->foreign_key = $stockchange->id;
-            }
-            // add formatted data to array
-            array_push($data, $product);
-        }
 
-        //links per row
-        $link_array = [
-            ['route' => "product.destroy", 'icon' => "fa-solid fa-trash"],
-            ['route' => "product.edit", 'icon' => "fa-solid fa-pen-to-square"],
-        ];
+        foreach($producten as $product) {
+            unset($product->created_at);
+            unset($product->updated_at);
+            $latestStock = Stockchange::where("product_id", "=", $product->id)->where("isApproved", 1)->latest()->first();
+            $amount = Stockchange::where("product_id", "=", $product->id)->where("isApproved", 1)->sum("amount");
+
+            $product->product_category_id = $product->product_category->name;
+
+            $product->file = substr_replace($product->file, "...", 40);
+            $product->description = substr_replace($product->description, "...", 50);
+            $product->amount = $amount;
+            if ($latestStock) {
+                $product->new_stock = $latestStock->amount;
+            } else {
+                $product->new_stock = "N.V.T";
+            }
+        }
 
         $table = "products";
 
-        return view('producten.index', ['producten' => $data, 'linkjes' => $link_array, 'table' => $table]);
+        return view('producten.index', ['producten' => $producten, 'table' => $table]);
     }
 
     public function create() {
@@ -58,22 +52,42 @@ class ProductController extends Controller
 
     public function store() {
         $data = request()->validate($this->rules);
-        $temp_stock = $data["stock"];
+        $temp_stock = $data["amount"];
 
         $product = Product::create($data);
 
-        Stockchange::create(['machine_id' => $product->id, 'amount' => $temp_stock]);
+        if($temp_stock > 5000) {
+            Stockchange::create(['product_id' => $product->id, 'amount' => $temp_stock, 'isApproved' => 0]);
+            return redirect()->route('product.index');
+        }
+
+        Stockchange::create(['product_id' => $product->id, 'amount' => $temp_stock]);
 
         return redirect()->route('product.index');
     }
 
     public function edit(Product $product) {
+        $product->amount = Stockchange::where("product_id", $product->id)->sum("amount");
         $productcategories = Product_categories::all();
         return view('producten.create', ['product' => $product, 'categorieen' => $productcategories]);
     }
 
     public function update(Product $product) {
         $data = request()->validate($this->rules);
+        $amount = $product->stockchange()->sum("amount");
+        $amountToBeInserted = $data["amount"] - $amount;
+
+        $stockchange = [
+            "product_id" => $product->id,
+            "amount" => $amountToBeInserted,
+        ];
+
+        if ($amountToBeInserted > 5000) {
+            $stockchange["isApproved"] = 0;
+            Stockchange::create($stockchange);
+            return redirect()->route('product.index');
+        }
+        Stockchange::create($stockchange);
         $product->update($data);
         return redirect()->route('product.index');
     }

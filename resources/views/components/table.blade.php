@@ -11,7 +11,7 @@
     </thead>
     <tbody>
         @foreach ($items as $item)
-            <tr class="border">
+            <tr class="border {{ $item->amount == 0 ? "bg-red-200" : "bg-green-200" }}">
                 @foreach ($item->getAttributes() as $key => $value)
                         @if (Str::contains($key, "amount"))
                             <td class="border p-2 text-center flex">

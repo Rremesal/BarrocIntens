@@ -38,7 +38,7 @@ class dashboardController extends Controller
                     "link" => [
                         [ "href" => '/product', "text" => "Producten"],
                         [ "href" => '/product/create', "text" => "Product aanmaken"],
-                        [ "href" => '/notification', "text" => "Voorraadaanvragen"],
+                        [ "href" => '/stockchange', "text" => "Voorraadaanvragen"],
                     ],
                 ];
                 break;
