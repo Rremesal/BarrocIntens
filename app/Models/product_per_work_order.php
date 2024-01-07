@@ -14,6 +14,6 @@ class product_per_work_order extends Model
     }
 
     public function product() {
-        return $this->belongsTo(Machine::class);
+        return $this->belongsTo(Product::class);
     }
 }
