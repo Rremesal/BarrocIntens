@@ -17,14 +17,13 @@ return new class extends Migration
             $table->string('description', 255);
             $table->string('file', 255);
             $table->decimal('price');
-            $table->integer('amount');
-            $table->unsignedBigInteger('product_categoty_id')->nullable();
+            $table->unsignedBigInteger('product_category_id')->nullable();
             $table->timestamps();
 
-            $table->foreign('product_categoty_id')->references('id')->on('product_categories')->onDelete('set null');
+            $table->foreign('product_category_id')->references('id')->on('product_categories')->onDelete('set null');
         });
     }
-   
+
     /**
      * Reverse the migrations.
      */
