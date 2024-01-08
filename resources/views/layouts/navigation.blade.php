@@ -15,17 +15,14 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Home') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Koffie Merken(Not needed)') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('machines.index')" :active="request()->routeIs('machines.index')">
+                    <x-nav-link :href="route('product.index')" :active="request()->routeIs('machines.index')">
                         {{ __('Machines') }}
                     </x-nav-link>
                     <x-nav-link :href="route('privacy')" :active="request()->routeIs('privacy')">
                         {{ __('Privacyverklaring') }}
                     </x-nav-link>
                     @if (auth()->user() != null && auth()->user()->role->role_name == "inkoop_supervisor")
-                        <x-nav-link :href="route('notification.index')" :active="request()->routeIs('privacy')">
+                        <x-nav-link :href="route('stockchange.index')" :active="request()->routeIs('stockchange')">
                             {{ __('Voorraadaanvragen') }}
                         </x-nav-link>
                     @endif

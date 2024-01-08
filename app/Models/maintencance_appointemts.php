@@ -9,7 +9,5 @@ class maintencance_appointemts extends Model
 {
     use HasFactory;
 
-    public function company() {
-        return $this->belongsTo(company::class);
-    }
+    protected $guarded = ["id"];
 }

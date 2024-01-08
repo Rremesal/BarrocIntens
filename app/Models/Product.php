@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Machine extends Model
+class Product extends Model
 {
     use HasFactory;
 
@@ -21,9 +21,5 @@ class Machine extends Model
 
     public function stockchange() {
         return $this->hasMany(stockchange::class);
-    }
-
-    public function notifications() {
-        return $this->hasMany(Notification::class);
     }
 }

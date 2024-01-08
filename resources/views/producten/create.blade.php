@@ -1,5 +1,8 @@
 @props(['product' => null]);
 <x-app-layout>
+    @foreach ($errors->all() as $error)
+        <p>{{ $error }}</p>
+    @endforeach
     <div class="flex justify-center items-center">
         <form class=" w-1/3 flex flex-col" method="POST" action="{{ route($product ? "product.update" : "product.store" , $product ? ['product' => $product] : null)}}">
             @csrf
@@ -19,9 +22,9 @@
                 @enderror
             </div>
             <div class="flex flex-col my-2">
-                <label for="image_path">Pad naar afbeelding</label>
-                <input id="image_path" name="image_path" type="text" value="{{ old('image_path', $product ? $product->image_path : null) }}">
-                @error('image_path')
+                <label for="file">Pad naar afbeelding</label>
+                <input id="file" name="file" type="text" value="{{ old('file', $product ? $product->file : null) }}">
+                @error('file')
                 <p class="text-red-500">{{ $message }}</p>
                 @enderror
             </div>
@@ -33,9 +36,9 @@
                 @enderror
             </div>
             <div class="flex flex-col my-2">
-                <label for="stock">Voorraad</label>
-                <input id="stock" name="stock" type="number" value="{{ old('stock', $product ? $product : null) }}">
-                @error('price')
+                <label for="amount">Voorraad</label>
+                <input id="amount" name="amount" type="number" {{ $product ? "min=$product->amount" : "" }} value="{{ old('amount', $product ? $product->amount : null) }}">
+                @error('amount')
                 <p class="text-red-500">{{ $message }}</p>
                 @enderror
             </div>

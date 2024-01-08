@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('maintencance_appointemts', function (Blueprint $table) {
             $table->id();
-            $table->longText('remark', 255);
-            $table->dateTime('date_added');
+            $table->string('title', 255);
+            $table->datetime('start_tijd');
+            $table->datetime('eind_tijd');
             $table->timestamps();
         });
     }

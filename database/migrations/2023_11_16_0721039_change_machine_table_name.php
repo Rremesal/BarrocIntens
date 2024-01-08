@@ -11,23 +11,25 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('machines', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
             $table->string('description', 255);
-            $table->string('image_path', 255);
+            $table->string('file', 255);
             $table->decimal('price');
-            $table->unsignedBigInteger('product_category_id');
-            $table->foreign('product_category_id')->references('id')->on('product_categories');
+            $table->integer('amount');
+            $table->unsignedBigInteger('product_categoty_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('product_categoty_id')->references('id')->on('product_categories')->onDelete('set null');
         });
     }
-
+   
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('machines');
+        Schema::dropIfExists('products');
     }
 };
