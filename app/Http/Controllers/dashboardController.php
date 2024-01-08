@@ -48,7 +48,7 @@ class dashboardController extends Controller
                 break;
             case "maintenance":
                 break;
-            case "customer":
+            case "klant":
                 break;
         }
 
