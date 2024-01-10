@@ -11,4 +11,4 @@
             </div>
         </div>
     @endfor
-<div>
+</div>
