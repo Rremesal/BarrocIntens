@@ -47,7 +47,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('/dashboard', dashboardController::class);
 
     Route::resource('/product', ProductController::class);
-    Route::put('stockchange/{item}', [StockchangeController::class, 'update']);
 
 
     Route::resource('/product', ProductController::class);
