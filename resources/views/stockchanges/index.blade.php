@@ -14,7 +14,7 @@
                 <x-primary-button type="submit">Filter</x-primary-button>
             </form>
             @if (count($stockchanges) == 0)
-                <p>No stock changes were found for this product</p>
+                <p>No stock changes to approve</p>
             @else
                 <table>
                     <thead>
