@@ -5,6 +5,18 @@
                 <p>no products were found</p>
             @else
                 <div class="p-5">
+                    <div class="mb-3">
+                        <form action="{{ route('product.index') }}" method="GET">
+                            @csrf
+                            <select name="stock" id="stock">
+                                <option value="-1">--- kies filter ---</option>
+                                <option value="0">Uit voorraad</option>
+                                <option value="1">Momenteel leverbaar</option>
+                            </select>
+                            <input type="text" name="search">
+                            <x-primary-button>Zoeken</x-primary-button>
+                        </form>
+                    </div>
                     <table>
                         <thead class="bg-customyellow">
                             <th>Naam</th>
