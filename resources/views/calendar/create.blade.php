@@ -9,6 +9,9 @@
                 <label for="eventTitle">Titel:</label>
                 <input class="text-black" type="text" name="title" id="eventTitle" required>
 
+                <label for="eventDescription">Description:</label>
+                <input class="text-black" type="text" name="description" id="eventDescription" required>
+
                 <label for="eventStart">Starttijd:</label>
                 <input class="text-black" type="datetime-local" name="start_tijd" id="eventStart" required>
 

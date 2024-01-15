@@ -5,7 +5,7 @@
         <meta charset='utf-8' />
         <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script>
         <script>
-  
+          
           document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('maintencance_appointemts');
             var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -16,6 +16,12 @@
                 center: '',
                 end: 'today prev,next'
               },
+              eventClick: function(info) {
+              alert('Event: ' + info.event.title);
+              alert('Event: ' + info.event.description);
+              
+              info.el.style.borderColor = 'red';
+            },
               events: {{ Js::from($data)}}
             });
             calendar.render();
@@ -28,4 +34,3 @@
       </body>
     </html>
   </x-app-layout>
-      
