@@ -20,14 +20,14 @@ class Mail
         $mail->isSMTP();
         $mail->Host = "smtp.gmail.com";
         $mail->SMTPAuth = true;
-        $mail->Username = "rremesal.dev@gmail.com";
-        $mail->Password = "bywr ehmo tftu epuz";
+        $mail->Username = env("MAIL_FROM_ADDRESS");
+        $mail->Password = env("MAIL_PASSWORD");
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
         $mail->isHTML();
 
 
-        $mail->From = "rremesal.dev@gmail.com";
+        $mail->From = env("MAIL_FROM_ADDRESS");
         $mail->addAddress($recipient);
 
         $this->mail = $mail;
