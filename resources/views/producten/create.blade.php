@@ -53,7 +53,7 @@
                 <p class="text-red-500">{{ $message }}</p>
                 @enderror
             </div>
-            <button class=" bg-customblack text-white rounded py-2" type="submit">Aanmaken</button>
+            <button class=" bg-customblack text-white rounded py-2" type="submit">{{ $product ? "Aanpassen" : "Aanmaken"}}</button>
         </form>
     </div>
 

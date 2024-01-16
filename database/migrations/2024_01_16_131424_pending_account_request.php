@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('maintencance_appointemts', function (Blueprint $table) {
+        Schema::create('pending_account_requests', function(Blueprint $table) {
             $table->id();
-            $table->string('title', 255);
-            $table->string('description',255);
-            $table->datetime('start_tijd');
-            $table->datetime('eind_tijd');
+            $table->string("name", 255);
+            $table->string("email", 255)->unique();
+            $table->unsignedBigInteger("user_id")->nullable();
+            $table->foreign("user_id")->references("id")->on("users");
+            $table->tinyInteger("isHandled")->default(0);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('maintencance_appointemts');
+        //
     }
 };

@@ -76,7 +76,7 @@ h1, h2, h3 {
     font-size: 30px;
 }
 
-p {
+p, label {
     font-family: 'Roboto', sans-serif;
     font-size: 17px;
 }

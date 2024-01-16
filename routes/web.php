@@ -47,8 +47,11 @@ Route::middleware('auth')->group(function () {
     Route::resource('/dashboard', dashboardController::class);
 
     Route::resource('/product', ProductController::class);
+<<<<<<<<< Temporary merge branch 1
+
+=========
     Route::put('stockchange/{item}', [StockchangeController::class, 'update']);
-    Route::resource('/notification', NotificationController::class);
+>>>>>>>>> Temporary merge branch 2
 
 
     Route::resource('/product', ProductController::class);

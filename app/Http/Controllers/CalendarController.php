@@ -18,6 +18,7 @@ class CalendarController extends Controller
         {
             array_push($data, [
                 'title' => $calendar->title,
+                'description' => $calendar->description,
                 'start' => $calendar->start_tijd,
                 'end' => $calendar->eind_tijd,
                 'startEditable' => true
@@ -38,6 +39,7 @@ class CalendarController extends Controller
     {
         $data = request()->validate([
             'title' => ['required'],
+            'description' => ['required'],
             'start_tijd' => ['required'],
             'eind_tijd' => ['required'],
         ]);

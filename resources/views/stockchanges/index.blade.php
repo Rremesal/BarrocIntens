@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="flex justify-center my-28">
         <div class="flex flex-col items-center">
-            <form method="POST" action="{{ route("stockchange.index") }}">
+            <form class="mb-3" method="POST" action="{{ route("stockchange.index") }}">
                 @method("GET")
                 @csrf
                 <label for="product">Product</label>
@@ -13,8 +13,8 @@
                 </select>
                 <x-primary-button type="submit">Filter</x-primary-button>
             </form>
-            @if (empty($stockchanges))
-                <p>No stock changes were found for this product</p>
+            @if (count($stockchanges) == 0)
+                <p>No stock changes to approve</p>
             @else
                 <table>
                     <thead>
@@ -55,7 +55,6 @@
                     </tbody>
                 </table>
             @endif
-
         </div>
 
     </div>

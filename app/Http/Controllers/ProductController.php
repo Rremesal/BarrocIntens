@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Models\Product_categories;
 use App\Models\Stockchange;
 
+use function PHPUnit\Framework\isEmpty;
+
 class ProductController extends Controller
 {
     private $rules = [
@@ -19,8 +21,24 @@ class ProductController extends Controller
     ];
 
     public function index() {
+        $stock = request()->input("stock");
+        $search = request()->input("search");
 
-        $producten = Product::all();
+        if($stock == "0") {
+            $producten = Product::whereNotIn('id', function ($query) {
+                $query->select('product_id')->from('stockchanges');
+            })->get();
+        } else if($stock == "1") {
+            $producten = Product::whereIn('id', function ($query) {
+                $query->select('product_id')->from('stockchanges');
+            })->get();
+        } else {
+            $producten = Product::all();
+        }
+
+        if($search != null) {
+            $producten = Product::where("name", "LIKE", "%".$search."%")->get();
+        }
 
         foreach($producten as $product) {
             unset($product->created_at);
