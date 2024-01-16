@@ -60,6 +60,7 @@ class DashboardController extends Controller
             case "maintenance":
                 break;
             case "klant":
+                return redirect('/');
                 break;
         }
 

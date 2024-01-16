@@ -2,7 +2,7 @@
     <x-cookie-alert></x-cookie-alert>
     <div class="bgimg">
         <div class="overlay">
-            <img src="{{ asset('/image/Homepage.png') }}" class="image">
+            <img src="{{ asset('/image/Homepage.png') }}" class="bgimg">
         </div>
         <div class="middle">
             <h1 class="text-8xl font-extrabold">KOFFIEBRAND BARROCINTENS</h1>
