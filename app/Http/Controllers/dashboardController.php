@@ -8,10 +8,11 @@ use App\Http\Controllers\Str;
 
 class dashboardController extends Controller
 {
-    public function index()
+    public function dashboard()
     {
         $user = auth()->user();
         $role =  strtolower($user->role->role_name);
+        $config = [];
 
         switch ($role) {
             case "inkoop":
@@ -43,6 +44,16 @@ class dashboardController extends Controller
                 ];
                 break;
             case "sales":
+                $config = [
+
+                    "image" => [
+                        asset("Image/NavbarlogoBig.png"),
+                    ],
+                    "link" => [
+                        [ "href" => '/user/create', "text" => "Gebruiker aanmaken"],
+
+                    ],
+                ];
                 break;
             case "finance":
                 break;

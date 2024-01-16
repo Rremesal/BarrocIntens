@@ -58,4 +58,8 @@ class User extends Authenticatable
     public function workorder() {
         return $this->hasMany(User::class);
     }
+
+    public function pendingAccountRequest() {
+        return $this->hasOne(PendingAccountRequest::class);
+    }
 }
