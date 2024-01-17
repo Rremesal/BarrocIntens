@@ -22,17 +22,21 @@
 body, html {
     height: 100%;
     margin: 0;
+    overflow: hidden;
     background: rgb(47,47,47);
     background: linear-gradient(0deg, rgba(47,47,47,1) 17%, rgba(170,170,170,0.0985644257703081) 100%);
 }
 
+
 .bgimg {
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-position: center;
     background-size: cover;
     color: white;
     font-family: "Courier New", Courier, monospace;
     font-size: 25px;
+
 }
 .bggradient {
     background: rgb(47,47,47);
@@ -76,7 +80,7 @@ h1, h2, h3 {
     font-size: 30px;
 }
 
-p {
+p, label {
     font-family: 'Roboto', sans-serif;
     font-size: 17px;
 }
