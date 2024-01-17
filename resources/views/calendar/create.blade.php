@@ -17,8 +17,10 @@
 
                 <label for="eventEnd">Eindtijd:</label>
                 <input class="text-black" type="datetime-local" name="eind_tijd" id="eventEnd" required>
-
-                <button type="submit">Voeg evenement toe</button>
+                <br>
+                <div class="flex justify-center">
+                    <x-primary-button class="h-8 w-50" type="submit">Voeg evenement toe</x-primary-button>
+                </div>
             </form>
         </div>
     </div>

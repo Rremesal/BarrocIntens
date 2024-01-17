@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
@@ -30,7 +31,7 @@ Route::get('/privacyverklaring', function(){
 
 Route::get('/home', function () {
     return view('home');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -44,9 +45,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/fullcalendar/store', [CalendarController::class, 'store'])->name('fullcalendar.store');
 
 
-    Route::resource('/dashboard', dashboardController::class);
-
-    Route::resource('/product', ProductController::class);
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name("dashboard");
+    Route::resource('/user', AccountController::class);
 
     Route::put('stockchange/{item}', [StockchangeController::class, 'update']);
 
