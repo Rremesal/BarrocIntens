@@ -41,6 +41,18 @@ class dashboardController extends Controller
                         [ "href" => '/stockchange', "text" => "Voorraadaanvragen"],
                     ],
                 ];
+                case "maintenance":
+                    $config = [
+    
+                        "image" => [
+                            asset("Image/NavbarlogoBig.png"),
+                            asset("Image/NavbarlogoBig.png"),
+                        ],
+                        "link" => [
+                            [ "href" => '/fullcalendar', "text" => "Calendar"],
+                            [ "href" => '/fullcalendar/create', "text" => "Appointment aanmaken"],
+                        ],
+                    ];
                 break;
             case "sales":
                 break;

@@ -9,13 +9,22 @@
           document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('maintencance_appointemts');
             var calendar = new FullCalendar.Calendar(calendarEl, {
+              customButtons: {
+                myCustomButton: {
+                  text: 'Create',
+                  click: function() {
+                    window.location.href = 'http://barrocintens.test/fullcalendar/create';
+                  }
+                }
+              },
               initialView: 'dayGridMonth',
               locale: 'nl', 
               headerToolbar: {
                 start: 'title',
                 center: '',
-                end: 'today prev,next'
+                end: 'myCustomButton dayGridMonth,timeGridWeek,timeGridDay today prev,next'
               },
+              
               eventClick: function(info) {
               alert('Event: ' + info.event.title);
               alert('Event: ' + info.event.description);
